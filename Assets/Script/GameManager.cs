@@ -5,20 +5,27 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool isStart;
+    public int[] score = { 0 };
+    public float playerHp = 300;
+    public int coin;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+        DontDestroyOnLoad(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool SetSocre(int s,int c)
     {
-        if (!isStart && Input.anyKeyDown)
-            isStart = true;
+        if (score[c] <= s)
+        {
+            score[c] = s;
+            return true;
+        }
+        return false;
     }
+
 }

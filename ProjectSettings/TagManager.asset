@@ -6,6 +6,10 @@ TagManager:
   tags:
   - ground
   - FieldItem
+  - NPC
+  - Ground
+  - End
+  - Coin
   layers:
   - Default
   - TransparentFX

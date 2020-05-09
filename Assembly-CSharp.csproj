@@ -64,14 +64,18 @@
   <ItemGroup>
     <Compile Include="Assets\Script\BackScrolling.cs" />
     <Compile Include="Assets\Script\Box.cs" />
+    <Compile Include="Assets\Script\Bullet.cs" />
+    <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\Script\EnemyEntity.cs" />
     <Compile Include="Assets\Script\FieldItem.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Inventory.cs" />
     <Compile Include="Assets\Script\Item.cs" />
     <Compile Include="Assets\Script\MoveBackground.cs" />
+    <Compile Include="Assets\Script\NPC.cs" />
     <Compile Include="Assets\Script\Piece.cs" />
     <Compile Include="Assets\Script\PlayerRun.cs" />
+    <Compile Include="Assets\Script\Trap.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -122,6 +126,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/ljy10/OneDrive/바탕 화면/프로젝트/2dRunning/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/ljy10/OneDrive/바탕 화면/프로젝트/2dRunning/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/Users/ljy10/OneDrive/바탕 화면/프로젝트/2dRunning/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -9,7 +9,7 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.isStart)
+        if(FindObjectOfType<PlayerRun>().isStart)
             transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }

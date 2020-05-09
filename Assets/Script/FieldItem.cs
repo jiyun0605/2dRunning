@@ -8,6 +8,10 @@ public class FieldItem : MonoBehaviour
     public Item item;
     public SpriteRenderer sprite;
 
+    private void Start()
+    {
+        SetItem(item);
+    }
     public void SetItem(Item _item)
     {
         sprite = GetComponent<SpriteRenderer>();

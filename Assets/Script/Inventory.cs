@@ -7,7 +7,9 @@ public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
     public GameObject[] slots;
+    public Sprite slotbase;
     bool canUse;
+    NPC npc;
     public bool AddItem(Item item)
     {
         if (items.Count >= 4)
@@ -27,22 +29,32 @@ public class Inventory : MonoBehaviour
                 fieldItem.DestroyItem();
             }
         }
-        if (collision.gameObject.tag == "NPC")
-        {
-            canUse = true;
-        }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag=="NPC")
         {
+            canUse = true;
+            npc = collision.gameObject.GetComponent<NPC>();
+            npc.ShowNeed();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "NPC")
+        {
             canUse = false;
+            npc = null;
         }
     }
     public void Use(int n)
     {
         if (!canUse)
             return;
+        npc.GetItem(items[n].itemCode);
         items[n].Use();
+        items.Remove(items[n]);
+        slots[n].GetComponent<Image>().sprite = slotbase;
     }
 }
