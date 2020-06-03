@@ -7,9 +7,9 @@ TagManager:
   - ground
   - FieldItem
   - NPC
-  - Ground
   - End
   - Coin
+  - button
   layers:
   - Default
   - TransparentFX
@@ -19,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

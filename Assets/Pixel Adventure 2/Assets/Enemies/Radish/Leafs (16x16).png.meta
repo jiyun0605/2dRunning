@@ -3,13 +3,13 @@ guid: d66a24f1a595be64bbd51c1a109278b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1438261671223416474
+      213: 21300000
     second: Leafs_0
   - first:
-      213: 4748074554828775505
+      213: 21300002
     second: Leafs_1
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -75,7 +76,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -87,7 +88,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -107,7 +108,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3d3785d727e2b3c4f935d1f7daaf3b8c
-      internalID: 1438261671223416474
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -128,7 +129,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b5b2ec545bc7de940a80b20fd611ce27
-      internalID: 4748074554828775505
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []

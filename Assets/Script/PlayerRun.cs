@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class PlayerRun : MonoBehaviour
 {
+    public int bgmcode;
     public static PlayerRun player;
     public int score;
-    public int sceneCode;
+    public int stageCode;
     public GameObject GameOver;
     public GameObject end;
-    public int coin;
     public TextMeshProUGUI highScore;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endText;
@@ -23,16 +23,22 @@ public class PlayerRun : MonoBehaviour
     public float jumpPower;
     public Slider hpSlider;
     int jumpCnt;
-    bool damaged;
+    public bool damaged;
     bool jumpEnable;
-    bool isJumping;
+    public bool isJumping;
     bool canShoot;
     public bool isStart;
     public bool isEnd;
-    float maxHp;
-    float curHp;
+    public float maxHp;
+    public float curHp;
+
+    bool isStop;
+    public GameObject stop;
     private void Start()
     {
+        if(!SoundManager.soundManager.BGM[bgmcode].isPlaying)
+             SoundManager.soundManager.BGMPlay(bgmcode);
+        Time.timeScale = 1;
         player = this;
         jumpCnt = 0;
         rd2d = GetComponent<Rigidbody2D>();
@@ -41,38 +47,54 @@ public class PlayerRun : MonoBehaviour
         canShoot = true;
         maxHp = GameManager.instance.playerHp;
         curHp = maxHp;
+        GameManager.instance.skill.skillStart();
+        
         hpSlider.value = 1;
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isStop||isEnd) SceneManager.LoadScene(2);
+            else
+            {
+                isStop = true;
+                stop.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
         if (!isStart && Input.anyKeyDown&&!isEnd)
             isStart = true;
         if (isStart)
         {
+            if (curHp <= 0)
+                Die();
             animator.SetTrigger("Start");
             curHp -= 1 * Time.deltaTime;
             hpSlider.value = Mathf.Lerp(hpSlider.value, curHp / maxHp, 0.3f);
         }
        
     }
+
     public void OnDamaged(int d)
     {
         if (damaged)
             return;
+        SoundManager.soundManager.SFXPlay(3);
         animator.SetTrigger("Hit");
         damaged = true;
         curHp -= d;
-        if (curHp <= 0)
-            Die();
+        StartCoroutine(DamagedLimit());
     }
     IEnumerator DamagedLimit()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         damaged = false;
+        transform.position = new Vector3(-7, transform.position.y);
     }
     IEnumerator JumpLimit()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         jumpEnable = true;
     }
     IEnumerator ShootLimit()
@@ -90,6 +112,7 @@ public class PlayerRun : MonoBehaviour
             StartCoroutine(JumpLimit());
             jumpCnt++;
             Jump();
+            SoundManager.soundManager.SFXPlay(0);
         }
     }
     void Jump()
@@ -103,6 +126,7 @@ public class PlayerRun : MonoBehaviour
     {
         if (!canShoot)
             return;
+        SoundManager.soundManager.SFXPlay(2);
         Instantiate(bullet, transform.position, Quaternion.identity);
         canShoot = false;
         StartCoroutine(ShootLimit());
@@ -119,21 +143,21 @@ public class PlayerRun : MonoBehaviour
     {
         if (collision.gameObject.tag == "End")
         {
-            isEnd = true;
-            isStart = false;
-            end.SetActive(true);
-            highScore.gameObject.SetActive(GameManager.instance.SetSocre(score, sceneCode));
-            endText.text = score.ToString();
-            GameManager.instance.coin += coin;
-        }
-        if (collision.gameObject.tag == "Coin")
-        {
-            coin++;
-            coinTxt.text = coin.ToString();
-            Destroy(collision.gameObject);
+            End();
         }
     }
-
+    public void End()
+    {
+        isEnd = true;
+        isStart = false;
+        end.SetActive(true);
+        score += (int)(hpSlider.value * 10000);
+        highScore.gameObject.SetActive(GameManager.instance.SetSocre(score, stageCode));
+        endText.text = score.ToString();
+        if (stageCode + 1 > 6)
+            return;
+        GameManager.instance.stageClear[stageCode + 1] = true;
+    }
     public void Die()
     {
         GameOver.SetActive(true);
@@ -149,6 +173,19 @@ public class PlayerRun : MonoBehaviour
     {
         score += n;
         scoreText.text = score.ToString();
+    }
+
+    public void Exit()
+    {
+        isStop = false;
+        SceneManager.LoadScene(2);
+    }
+    public void Continue(GameObject gameObject)
+    {
+        Time.timeScale = 1;
+        isStart = false;
+        gameObject.SetActive(false);
+       
     }
 }
 

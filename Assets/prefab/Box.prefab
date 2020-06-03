@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -114,7 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7148e9c77ca54554fbc6f1f5752568c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 1
+  sfxCode: 8
+  point: 100
   dropItem: {fileID: 7367992252028277027, guid: 7cc781e08a6c5a746b892492233f660b,
     type: 3}
   piece:

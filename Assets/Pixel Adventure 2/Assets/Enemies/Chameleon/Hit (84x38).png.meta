@@ -3,22 +3,22 @@ guid: 879f42eb54eb4f8489bc40c802959898
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1517127373124647554
+      213: 21300000
     second: Hit (84x38)_0
   - first:
-      213: 7606828424425268948
+      213: 21300002
     second: Hit (84x38)_1
   - first:
-      213: -7336032172952701361
+      213: 21300004
     second: Hit (84x38)_2
   - first:
-      213: 2040186456984773144
+      213: 21300006
     second: Hit (84x38)_3
   - first:
-      213: 8416034946683413540
+      213: 21300008
     second: Hit (84x38)_4
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,6 +72,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -97,6 +98,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -116,7 +153,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7a10d8fc556769145aaa11e1e4d0f802
-      internalID: -1517127373124647554
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -137,7 +174,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b78a23931aff57f4e8a28ed81ccc14ee
-      internalID: 7606828424425268948
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -158,7 +195,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a26383f9ab72d0c46ac26dea3a51f46d
-      internalID: -7336032172952701361
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -179,7 +216,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c9bc116ed76ac6b46a4265c8745f193d
-      internalID: 2040186456984773144
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -200,7 +237,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a3cae97d94220744f8bba33743268248
-      internalID: 8416034946683413540
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []

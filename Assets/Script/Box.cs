@@ -24,6 +24,7 @@ public class Box : EnemyEntity
 
     public void Broke()
     {
+       
         PlayerRun.player.SetScore(point);
         for(int i=0;i<piece.Length;i++)
         {

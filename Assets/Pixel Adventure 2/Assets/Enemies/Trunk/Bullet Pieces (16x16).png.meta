@@ -3,13 +3,13 @@ guid: c311c0181264099438b146cd005da065
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5157668563614570575
+      213: 21300000
     second: Bullet Pieces (16x16)_0
   - first:
-      213: 7899032702449895438
+      213: 21300002
     second: Bullet Pieces (16x16)_1
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -75,7 +76,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -87,7 +88,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -107,7 +108,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e26a263ab2f95d44b8f0d4747258b0a4
-      internalID: 5157668563614570575
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -128,7 +129,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 746cc1e27851e8040ae6915c0bdb6666
-      internalID: 7899032702449895438
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []

@@ -5,21 +5,32 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> items = new List<Item>();
+    public Item[] items;
     public GameObject[] slots;
+    Stack<int> slotCnt = new Stack<int>();
     public Sprite slotbase;
-    bool canUse;
+    public bool canUse;
     NPC npc;
+    private void Start()
+    {
+        for(int i=3;i>=0;i--)
+        {
+            slotCnt.Push(i);          
+        }
+        for(int i=0;i<items.Length;i++)
+            items[i].itemCode = -1;
+    }
     public bool AddItem(Item item)
     {
-        if (items.Count >= 4)
+        if (slotCnt.Count<=0)
             return false;
-        items.Add(item);
-        slots[items.Count - 1].GetComponent<Image>().sprite = item.itemSprite;
-
+        SoundManager.soundManager.SFXPlay(5);
+        int n = slotCnt.Pop();
+        items[n] = item;
+        slots[n].GetComponent<Image>().sprite = item.itemSprite;
         return true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FieldItem")
         {
@@ -29,11 +40,7 @@ public class Inventory : MonoBehaviour
                 fieldItem.DestroyItem();
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag=="NPC")
+        if (collision.gameObject.tag=="NPC")
         {
             canUse = true;
             npc = collision.gameObject.GetComponent<NPC>();
@@ -50,11 +57,16 @@ public class Inventory : MonoBehaviour
     }
     public void Use(int n)
     {
-        if (!canUse)
+        Debug.Log(n);
+        if (!canUse| items[n].itemCode == -1)
+        {
             return;
-        npc.GetItem(items[n].itemCode);
+        }
+        
+         npc.GetItem(items[n].itemCode);
+        slotCnt.Push(n);
         items[n].Use();
-        items.Remove(items[n]);
+        items[n].itemCode = -1;
         slots[n].GetComponent<Image>().sprite = slotbase;
     }
 }
